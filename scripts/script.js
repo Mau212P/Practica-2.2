@@ -94,3 +94,35 @@ function esMovimientoValido(boton) {
 
   return esAdyacente;
 }
+// Función para obtener la posición de un botón
+function obtenerPosicion(boton) {
+const id = boton.id;
+const numero = parseInt(id.replace('btn', '')); // Asume que los ids de los botones son 'btn' seguido de un número
+
+return {
+fila: Math.floor((numero - 1) / filas),
+columna: (numero - 1) % columnas
+};
+}
+
+// Función para verificar si el rompecabezas está resuelto
+function esRompecabezasResuelto() {
+const botones = document.querySelectorAll('.botoncito');
+const botonesArray = Array.from(botones);
+const botonesTexto = botonesArray.map(boton => boton.textContent);
+
+return botonesTexto.join('') === matrizRespuesta;
+}
+
+// Función para detener el temporizador
+function detenerTemporizador() {
+clearInterval(timerInterval);
+}
+
+// Evento de clic en el botón "Revolver"
+document.getElementById('solve').addEventListener('click', () => {
+iniciarJuego();
+});
+
+// Iniciar el juego cuando se carga la página
+window.onload = iniciarJuego;
