@@ -64,3 +64,33 @@ function asignarEventos() {
     }
   });
 }
+// Función para mover un botón
+function moverBoton(boton) {
+  if (esMovimientoValido(boton)) {
+    const textoBoton = boton.textContent;
+    boton.textContent = '_';
+    botonDestino.textContent = textoBoton;
+    botonDestino = boton;
+    movimientos++;
+    actualizarContadores();
+    if (esRompecabezasResuelto()) {
+      // El rompecabezas se ha resuelto
+      detenerTemporizador();
+      alert('¡Has resuelto el rompecabezas!');
+    }
+  }
+}
+
+// Función para verificar si un movimiento es válido
+// Función para verificar si un movimiento es válido
+function esMovimientoValido(boton) {
+  // Obtén la posición del botón y del espacio vacío
+  const posicionBoton = obtenerPosicion(boton);
+  const posicionVacio = obtenerPosicion(botonDestino); // Asume que 'botonDestino' es el espacio vacío
+
+  // Comprueba si el botón está junto al espacio vacío
+  const esAdyacente = (posicionBoton.fila === posicionVacio.fila && Math.abs(posicionBoton.columna - posicionVacio.columna) === 1) ||
+                      (posicionBoton.columna === posicionVacio.columna && Math.abs(posicionBoton.fila - posicionVacio.fila) === 1);
+
+  return esAdyacente;
+}
