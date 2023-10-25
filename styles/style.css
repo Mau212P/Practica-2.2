@@ -1,0 +1,49 @@
+body{
+  background-color: #f5f5f5;
+  color: #ff0000;
+  font-family: Arial;
+  margin: 0;
+}
+div#titulo{
+  text-align: center;
+  text-shadow: 0 0 10px red;
+  padding: 1px;
+}
+
+div#rompecabezas{
+  text-align: center;
+  background-color: #710f0f;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 20px;
+  width: 450px;
+}
+
+button.botoncito{
+  background-color: #f97b7b;;
+  width: 100px;
+  height: 100px;
+  color: yellow;
+  font-size: 25px;
+  text-shadow: 0 0 20px black;
+}
+
+li{
+    display: inline;
+    margin-right: 10px;
+}
+
+button#solve{
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: #ffd500;
+  width:  120px;
+  height: 40px;
+  color: white;
+  font-size: 25px;
+  text-shadow: 0 0 20px black;
+}
+
+div#indicadores{
+  color: #ffbb00;
+}
